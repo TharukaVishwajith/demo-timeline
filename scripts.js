@@ -192,6 +192,7 @@ function generateEventViews(selectedYearData, event_index) {
                     </div>
                 </div>`
     }
+    bindBrowserEvents();
 }
 
 $(document).ready(function () {
@@ -221,6 +222,20 @@ function bindBrowserEvents() {
         $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).removeClass("circlehover");
     });
 
+
+    $(".tl-item").mouseenter(function (e) {
+        $(`.circle[data-item="${e.currentTarget.dataset.item}"]`).addClass("hover");
+    });
+
+    $(".tl-item").mouseleave(function (e) {
+        $(`.circle[data-item="${e.currentTarget.dataset.item}"]`).removeClass("hover");
+    });
+
+    $(".tl-item").click(function (e) {
+        let spanNum = $(`.circle[data-item="${e.currentTarget.dataset.item}"]`).attr("id");
+        selectDate(spanNum);
+    });
+
     $(".circle").click(function (e) {
         var spanNum = $(this).attr("id");
         selectDate(spanNum);
@@ -246,3 +261,6 @@ function bindBrowserEvents() {
         generateEventViews(selectedYearData, c)
     });
 }
+
+
+
