@@ -7,9 +7,15 @@ body {
     // height: 100vh;
     margin: 0;
     padding: 100;
-    background: #ff7e7e;
+    // background: #ff7e7e;
     font-family: Arial;
     overflow: hidden;
+    // background: #5a0202 ;
+    background-color: #5a0202;
+
+    font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 #timeline-container {
@@ -24,7 +30,7 @@ body {
 #line {
     height: 6px;
     width: 70%;
-    background: rgb(216, 158, 0);
+    background: #f48301;
     border-radius: 5px;
     margin: auto;
     top: 50%;
@@ -38,13 +44,13 @@ body {
     margin: auto;
     margin-top: 25%;
     text-align: center;
-    color: rgb(216, 158, 0);
+    color: #f48301;
 }
 
 .circle {
     width: 20px;
     height: 20px;
-    background: #e97162;
+    background: #f48301;
     border-radius: 15px;
     position: absolute;
     top: -7px;
@@ -52,13 +58,13 @@ body {
     cursor: pointer;
     &:before {
         content: "";
-        width: 10px;
-        height: 10px;
-        background: rgb(97, 71, 0);
+        width: 0.7em;
+        height: 0.7em;
+        background: rgb(255, 255, 255);
         position: absolute;
         border-radius: 100%;
-        top: 2px;
-        left: 2px;
+        top: 0.25em;
+        left: 0.23em;
         display: none;
     }
     .popupSpan {
@@ -67,12 +73,13 @@ body {
         padding: 10px;
         white-space: nowrap;
         display: inline-block;
-        color: rgb(216, 158, 0);
+        color: rgb(255, 255, 255);
         position: absolute;
         top: 20px;
         left: -75px;
         display: none;
         transition: all 0.3s ease-out;
+        font-size: 1.25em;
     }
     // &:nth-child(odd) .popupSpan {
     //   top: 20px;
@@ -118,11 +125,11 @@ body {
     // }
 }
 
-body {
-    font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.75;
-}
+// body {
+//     font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+//     font-size: 12px;
+//     line-height: 1.5;
+// }
 
 #timeline {
     display: flex;
@@ -230,9 +237,13 @@ body {
     h1 {
         font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
         text-transform: uppercase;
-        color: #ffefa9;
-        font-size: 1.44rem;
+        color: #ffc24b;
+        font-size: 1.3rem;
         font-weight: normal;
+    }
+
+    p {
+        font-size: 16px;
     }
 }
 
@@ -247,7 +258,7 @@ body {
 
     p {
         font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 1.728rem;
+        font-size: 1.728em;
         line-height: 0;
         padding-bottom: 8px;
     }
@@ -264,4 +275,78 @@ body {
     background-position: center center;
     transition: filter 0.5s ease;
     filter: grayscale(100%);
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+    .tl-content {
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .tl-date {
+        top: 20%;
+        p {
+            font-size: 1rem;
+            line-height: 0;
+            padding-bottom: 8px;
+        }
+    }
+}
+
+
+$breakpoint-tablet: 425px;
+@media (max-width: $breakpoint-tablet) {
+    .tl-content {
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .tl-date {
+        top: 20%;
+        p {
+            font-size: 0.65rem;
+            line-height: 0;
+            padding-bottom: 8px;
+        }
+    }
+}
+
+
+$breakpoint-mobile-m: 375px;
+@media (max-width: $breakpoint-mobile-m) {
+    .tl-content {
+        h1 {
+            font-size: 0.5rem;
+        }
+    }
+
+    .tl-date {
+        top: 20%;
+        p {
+            font-size: 0.65rem;
+            line-height: 0;
+            padding-bottom: 8px;
+        }
+    }
+}
+
+$breakpoint-mobile-s: 320px;
+@media (max-width: $breakpoint-mobile-s) {
+    .tl-content {
+        h1 {
+            font-size: 0.65rem;
+        }
+    }
+
+    .tl-date {
+        top: 20%;
+        p {
+            font-size: 0.65rem;
+            line-height: 0;
+            padding-bottom: 8px;
+        }
+    }
 }

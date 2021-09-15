@@ -6,9 +6,12 @@
 body {
   margin: 0;
   padding: 100;
-  background: #ff7e7e;
   font-family: Arial;
   overflow: hidden;
+  background-color: #5a0202;
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 #timeline-container {
@@ -23,7 +26,7 @@ body {
 #line {
   height: 6px;
   width: 70%;
-  background: #d89e00;
+  background: #f48301;
   border-radius: 5px;
   margin: auto;
   top: 50%;
@@ -38,13 +41,13 @@ body {
   margin: auto;
   margin-top: 25%;
   text-align: center;
-  color: #d89e00;
+  color: #f48301;
 }
 
 .circle {
   width: 20px;
   height: 20px;
-  background: #e97162;
+  background: #f48301;
   border-radius: 15px;
   position: absolute;
   top: -7px;
@@ -54,13 +57,13 @@ body {
 
 .circle:before {
   content: "";
-  width: 10px;
-  height: 10px;
-  background: #614700;
+  width: 0.7em;
+  height: 0.7em;
+  background: white;
   position: absolute;
   border-radius: 100%;
-  top: 2px;
-  left: 2px;
+  top: 0.25em;
+  left: 0.23em;
   display: none;
 }
 
@@ -70,13 +73,14 @@ body {
   padding: 10px;
   white-space: nowrap;
   display: inline-block;
-  color: #d89e00;
+  color: white;
   position: absolute;
   top: 20px;
   left: -75px;
   display: none;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  font-size: 1.25em;
 }
 
 .circle.hover:before, .circle.active:before {
@@ -96,12 +100,6 @@ body {
   height: 80%;
   width: 100%;
   margin-top: 3%;
-}
-
-body {
-  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.75;
 }
 
 #timeline {
@@ -235,9 +233,13 @@ body {
 .tl-content h1 {
   font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  color: #ffefa9;
-  font-size: 1.44rem;
+  color: #ffc24b;
+  font-size: 1.3rem;
   font-weight: normal;
+}
+
+.tl-content p {
+  font-size: 16px;
 }
 
 .tl-date {
@@ -252,7 +254,7 @@ body {
 
 .tl-date p {
   font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 1.728rem;
+  font-size: 1.728em;
   line-height: 0;
   padding-bottom: 8px;
 }
@@ -273,5 +275,61 @@ body {
   transition: filter 0.5s ease, -webkit-filter 0.5s ease;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+}
+
+@media (max-width: 768px) {
+  .tl-content h1 {
+    font-size: 1.2rem;
+  }
+  .tl-date {
+    top: 20%;
+  }
+  .tl-date p {
+    font-size: 1rem;
+    line-height: 0;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 425px) {
+  .tl-content h1 {
+    font-size: 1.2rem;
+  }
+  .tl-date {
+    top: 20%;
+  }
+  .tl-date p {
+    font-size: 0.65rem;
+    line-height: 0;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .tl-content h1 {
+    font-size: 0.5rem;
+  }
+  .tl-date {
+    top: 20%;
+  }
+  .tl-date p {
+    font-size: 0.65rem;
+    line-height: 0;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .tl-content h1 {
+    font-size: 0.65rem;
+  }
+  .tl-date {
+    top: 20%;
+  }
+  .tl-date p {
+    font-size: 0.65rem;
+    line-height: 0;
+    padding-bottom: 8px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

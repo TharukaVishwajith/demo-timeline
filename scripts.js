@@ -221,16 +221,19 @@ function bindBrowserEvents() {
         $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).removeClass("circlehover");
     });
 
-    $(".circle").click(function () {
+    $(".circle").click(function (e) {
         var spanNum = $(this).attr("id");
         selectDate(spanNum);
         c = parseInt(spanNum.replace('circle', ''));
         // generateContent(c)
-        generateEventViews(selectedYearData, c)
-        console.log(retriveDataItemNo(spanNum))
+        if (!$(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).length){
+            generateEventViews(selectedYearData, c)
+            $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).addClass("circlehover");
+        }
     });
 
-    $(document).bind('mousewheel', function (e) {
+    $('#timeline').bind('mousewheel', function (e) {
+        console.log(e)
         if (e.originalEvent.wheelDelta / 120 > 0) {
             if (dates.length - 1 > c) {
                 selectDate('circle' + ++c);
