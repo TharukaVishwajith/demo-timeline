@@ -278,6 +278,17 @@ body {
           filter: grayscale(100%);
 }
 
+.year-line {
+  padding-top: 1%;
+  text-align: center;
+}
+
+.year-line .year-label {
+  color: #ffc034;
+  font-size: 25px;
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 @media (max-width: 768px) {
   .tl-content h1 {
     font-size: 1.2rem;
