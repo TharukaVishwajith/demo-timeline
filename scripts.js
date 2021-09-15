@@ -181,7 +181,7 @@ function generateEventViews(selectedYearData, event_index) {
         // if (i == 3) break
     }
     function getElement(event) {
-        return `<div class="tl-item">
+        return `<div class="tl-item" data-item="${event.date}">
                     <div class="tl-bg" style="background-image: url(data/${event.date.substr(4)}/${event.date}/event_image.jpg)"></div>
                     <div class="tl-date">
                         <p class="f2 heading--sanSerif">${monthSpanS[parseInt(event.date.substr(2, 2)) - 1]} ${event.date.substr(0, 2)}</p>
@@ -195,11 +195,11 @@ function generateEventViews(selectedYearData, event_index) {
 }
 
 $(document).ready(function () {
-    dates = ["4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "11/2/2015", "12/22/2015"];
+    dates = ["2/11/2015", "4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "12/22/2015"];
     
     
     loadEventData(new Date().getFullYear() - 6, function (selectedYearData) {
-         dates = ["4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "11/2/2015", "12/22/2015"];
+        //  dates = ["4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "11/2/2015", "12/22/2015"];
         var dates1 = selectedYearData.details.map(a => {
             return `${a.date.substr(2, 2)}/${a.date.substr(2, 2)}/${a.date.substr(4)}`
         })
@@ -211,13 +211,14 @@ $(document).ready(function () {
 
 function bindBrowserEvents() {
 
-    $(".circle").mouseenter(function () {
+    $(".circle").mouseenter(function (e) {
         $(this).addClass("hover");
-        $('.tl-item').first().addClass("test");
+        $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).addClass("circlehover");
     });
 
-    $(".circle").mouseleave(function () {
+    $(".circle").mouseleave(function (e) {
         $(this).removeClass("hover");
+        $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).removeClass("circlehover");
     });
 
     $(".circle").click(function () {

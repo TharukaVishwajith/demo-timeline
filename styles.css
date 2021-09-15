@@ -190,9 +190,35 @@ body {
           filter: grayscale(0);
 }
 
-.tl-item.test .tl-content {
+.tl-item.circlehover {
+  width: 50% !important;
+}
+
+.tl-item.circlehover .tl-content {
   opacity: 1;
-  color: #d8ca09;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.75s ease 0.5s;
+  transition: all 0.75s ease 0.5s;
+}
+
+.tl-item.circlehover .tl-bg {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+
+.tl-item.circlehover:after {
+  opacity: 0;
+}
+
+.tl-item.circlehover:before {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) translateY(0);
+          transform: translate3d(0, 0, 0) translateY(0);
+  -webkit-transition: opacity 1s ease, -webkit-transform 1s ease 0.25s;
+  transition: opacity 1s ease, -webkit-transform 1s ease 0.25s;
+  transition: opacity 1s ease, transform 1s ease 0.25s;
+  transition: opacity 1s ease, transform 1s ease 0.25s, -webkit-transform 1s ease 0.25s;
 }
 
 .tl-content {
