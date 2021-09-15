@@ -1,4 +1,4 @@
-const META_FILE_PATH = '/data/meta.json';
+const META_FILE_PATH = './data/meta.json';
 
 //Sample dates
 
