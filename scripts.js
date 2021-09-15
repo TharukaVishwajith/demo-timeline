@@ -129,7 +129,6 @@ function generateContentFromTemplate(a) {
     </div>
   </div>`
 }
-// generateContent(1)
 console.log()
 
 
@@ -163,10 +162,6 @@ function loadEventData(year, callback) {
         selectedYearData = data.events.find((e) => {
             return e.year === year
         });
-        nums = []
-        for (let i = 1; i <= dates.length; i++) {
-            nums.push(i);
-        }
         callback(selectedYearData);
     });
 }
@@ -178,7 +173,6 @@ function generateEventViews(selectedYearData, event_index) {
     $('#timeline').empty();
     for (let i = 0; i < d.length; i++) {
         $('#timeline').append(getElement(d[i]))
-        // if (i == 3) break
     }
     function getElement(event) {
         return `<div class="tl-item" data-item="${event.date}">
@@ -196,14 +190,14 @@ function generateEventViews(selectedYearData, event_index) {
 }
 
 $(document).ready(function () {
-    dates = ["2/11/2015", "4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "12/22/2015"];
-    
-    
     loadEventData(new Date().getFullYear() - 6, function (selectedYearData) {
-        //  dates = ["4/12/2015", "6/12/2015", "8/15/2015", "10/22/2015", "11/2/2015", "12/22/2015"];
-        var dates1 = selectedYearData.details.map(a => {
-            return `${a.date.substr(2, 2)}/${a.date.substr(2, 2)}/${a.date.substr(4)}`
+        dates = selectedYearData.details.map(a => {
+            return `${a.date.substr(2, 2)}/${a.date.substr(0, 2)}/${a.date.substr(4)}`
         })
+        nums = []
+        for (let i = 1; i <= selectedYearData.details.length; i++) {
+            nums.push(i);
+        }
         generateEventViews(selectedYearData, 1);
         makeCircles(dates);
         bindBrowserEvents();
@@ -240,8 +234,7 @@ function bindBrowserEvents() {
         var spanNum = $(this).attr("id");
         selectDate(spanNum);
         c = parseInt(spanNum.replace('circle', ''));
-        // generateContent(c)
-        if (!$(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).length){
+        if (!$(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).length) {
             generateEventViews(selectedYearData, c)
             $(`.tl-item[data-item="${e.currentTarget.dataset.item}"]`).addClass("circlehover");
         }
