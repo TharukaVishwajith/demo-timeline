@@ -3,45 +3,19 @@
   padding: 0;
 }
 
-body {
-  background: #222;
-  font-family: Georgia, serif;
-  color: #fff;
-  font-size: 14px;
-}
-
 a {
   color: #ffffcc;
   text-decoration: none;
   -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
   transition: 0.5s;
 }
 
-a:hover,
-a.selected {
+a:hover {
   color: #ffcc00;
 }
 
-h1,
-h2,
-h4,
-h5,
-h6 {
-  text-align: center;
-  color: #ccc;
-  text-shadow: #000 1px 1px 2px;
-  margin-bottom: 5px;
-}
-
-h1 {
-  font-size: 18px;
-}
-
-h2 {
-  font-size: 14px;
+a.selected {
+  color: #ffcc00;
 }
 
 .sociales {
@@ -49,13 +23,12 @@ h2 {
   margin-bottom: 20px;
 }
 
-#timeline {
+#supertimeline {
   width: 800px;
-  height: 350px;
+  height: 700px;
   overflow: hidden;
-  margin: 100px auto;
+  margin: 0px auto;
   position: relative;
-  background: url("../images/dot.gif") left 45px repeat-x;
 }
 
 #dates {
@@ -85,7 +58,7 @@ h2 {
 
 #issues {
   width: 800px;
-  height: 350px;
+  height: 700px;
   overflow: hidden;
 }
 
@@ -96,74 +69,60 @@ h2 {
   float: left;
 }
 
-#issues li.selected img {
-  -webkit-transform: scale(1.1, 1.1);
-  -moz-transform: scale(1.1, 1.1);
-  -o-transform: scale(1.1, 1.1);
-  -ms-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
-}
-
 #issues li img {
   float: left;
   margin: 10px 30px 10px 50px;
   background: transparent;
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF)";
-  /* IE 8 */
-
-  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
-  /* IE 6 & 7 */
-
+  filter: "progid: DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)";
   zoom: 1;
   -webkit-transition: all 2s ease-in-out;
-  -moz-transition: all 2s ease-in-out;
-  -o-transition: all 2s ease-in-out;
-  -ms-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out;
   -webkit-transform: scale(0.7, 0.7);
-  -moz-transform: scale(0.7, 0.7);
-  -o-transform: scale(0.7, 0.7);
-  -ms-transform: scale(0.7, 0.7);
   transform: scale(0.7, 0.7);
 }
 
-#issues li h1 {
-  color: #ffcc00;
-  font-size: 48px;
-  margin: 20px 0;
-  text-shadow: #000 1px 1px 2px;
-  text-align: left;
-  padding-left: 70px;
+#issues li.selected img {
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
 }
 
-#issues li p {
-  font-size: 14px;
-  margin-right: 70px;
-  margin-left: 70px;
-  font-weight: normal;
-  line-height: 22px;
-  text-shadow: #000 1px 1px 2px;
-}
-
-#grad_left,
-#grad_right {
+#grad_left {
   width: 100px;
   height: 350px;
   position: absolute;
   top: 0;
-}
-
-#grad_left {
   left: 0;
   background: url("../images/grad_left.png") repeat-y;
 }
 
 #grad_right {
+  width: 100px;
+  height: 350px;
+  position: absolute;
+  top: 0;
   right: 0;
   background: url("../images/grad_right.png") repeat-y;
 }
 
-#next,
+#next {
+  position: absolute;
+  top: 0;
+  font-size: 70px;
+  top: 170px;
+  width: 22px;
+  height: 38px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  overflow: hidden;
+  right: 0;
+}
+
+#next:hover {
+  background-position: 0 -76px;
+}
+
 #prev {
   position: absolute;
   top: 0;
@@ -175,24 +134,17 @@ h2 {
   background-repeat: no-repeat;
   text-indent: -9999px;
   overflow: hidden;
+  left: 0;
 }
 
-#next:hover,
 #prev:hover {
   background-position: 0 -76px;
 }
 
-#next {
-  right: 0;
-  /* background: red; */
+#next.disabled {
+  opacity: 0.2;
 }
 
-#prev {
-  left: 0;
-  /* background: blue; */
-}
-
-#next.disabled,
 #prev.disabled {
   opacity: 0.2;
 }
@@ -201,13 +153,13 @@ h2 {
   width: 800px;
   height: 350px;
   overflow: hidden;
-  margin: 100px auto;
+  margin: 30px auto;
   position: relative;
 }
 
 .arrow {
-    width: 0 !important;
-    height: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .left-arrow {
@@ -221,3 +173,4 @@ h2 {
   border-left: 16px solid #ffcc00;
   border-bottom: 12px solid transparent;
 }
+/*# sourceMappingURL=style1.css.map */

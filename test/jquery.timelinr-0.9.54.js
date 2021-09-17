@@ -13,7 +13,7 @@ jQuery.fn.timelinr = function (options) {
 	// default plugin settings
 	settings = jQuery.extend({
 		orientation: 'horizontal',		// value: horizontal | vertical, default to horizontal
-		containerDiv: '#timeline',		// value: any HTML tag or #id, default to #timeline
+		containerDiv: '#supertimeline',		// value: any HTML tag or #id, default to #timeline
 		datesDiv: '#dates',			// value: any HTML tag or #id, default to #dates
 		datesSelectedClass: 'selected',			// value: any class, default to selected
 		datesSpeed: 'normal',			// value: integer between 100 and 1000 (recommended) or 'slow', 'normal' or 'fast'; default to normal
@@ -272,6 +272,6 @@ function autoPlay() {
 
 $(document).ready(function () {
 	setTimeout(()=>{
-		$('a[href^="#2000"]').click();
+		$('a[href^="#2015"]').click();
 	},1000);
 });

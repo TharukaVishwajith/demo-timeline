@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #640101;
+  color: #fff;
+}
+
+a {
+  color: #ffffcc;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+a:hover {
+  color: #ffcc00;
+}
+
+a.selected {
+  color: #ffcc00;
+}
+
+.sociales {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#supertimeline {
+  width: 800px;
+  height: 700px;
+  overflow: hidden;
+  margin: 0px auto;
+  position: relative;
+}
+
+#dates {
+  width: 800px;
+  height: 60px;
+  overflow: hidden;
+}
+
+#dates li {
+  list-style: none;
+  float: left;
+  width: 100px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  background: url("../images/biggerdot.png") center bottom no-repeat;
+}
+
+#dates a {
+  line-height: 38px;
+  padding-bottom: 10px;
+}
+
+#dates .selected {
+  font-size: 38px;
+}
+
+#grad_left {
+  width: 100px;
+  height: 350px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../images/grad_left.png") repeat-y;
+}
+
+#grad_right {
+  width: 100px;
+  height: 350px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("../images/grad_right.png") repeat-y;
+}
+
+#next {
+  position: absolute;
+  top: 0;
+  font-size: 70px;
+  top: 170px;
+  width: 22px;
+  height: 38px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  overflow: hidden;
+  right: 0;
+}
+
+#next:hover {
+  background-position: 0 -76px;
+}
+
+#prev {
+  position: absolute;
+  top: 0;
+  font-size: 70px;
+  top: 170px;
+  width: 22px;
+  height: 38px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  overflow: hidden;
+  left: 0;
+}
+
+#prev:hover {
+  background-position: 0 -76px;
+}
+
+#next.disabled {
+  opacity: 0.2;
+}
+
+#prev.disabled {
+  opacity: 0.2;
+}
+
+#year-container {
+  width: 800px;
+  height: 350px;
+  overflow: hidden;
+  margin: 30px auto;
+  position: relative;
+}
+
+.arrow {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.left-arrow {
+  border-top: 12px solid transparent;
+  border-right: 16px solid #ffcc00;
+  border-bottom: 12px solid transparent;
+}
+
+.right-arrow {
+  border-top: 12px solid transparent;
+  border-left: 16px solid #ffcc00;
+  border-bottom: 12px solid transparent;
+}
+/*# sourceMappingURL=timeline-style.css.map */
