@@ -9,6 +9,8 @@ https://www.opensource.org/licenses/mit-license.php
 instructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
 ---------------------------------- */
 
+var event_details = {};
+
 jQuery.fn.timelinr = function (options) {
 	// default plugin settings
 	settings = jQuery.extend({
@@ -67,6 +69,7 @@ jQuery.fn.timelinr = function (options) {
 			} else if (settings.orientation == 'vertical') {
 				$(settings.datesDiv).animate({ 'marginTop': defaultPositionDates - (heightDate * currentIndex) }, { queue: false, duration: 'settings.datesSpeed' });
 			}
+			loadContent(event_details,parseInt(event.currentTarget.text));
 		});
 
 		// keyboard navigation, added since 0.9.1
@@ -93,26 +96,46 @@ jQuery.fn.timelinr = function (options) {
 };
 
 
+
 $(document).ready(function () {
+	let year = 2015;
 	fetch('http://127.0.0.1:5500/data/meta.json')
 		.then(response => response.json())
 		.then(data => {
-			loadContent(data);
+			event_details = data;
+
+			// setTimeout(() => {
+			// 	$(`a[href^="#${year}"]`).click();
+			// }, 100);
+			loadInitialContent(data)
+			// loadContent(data, data.events[0].year);
 		});
 });
 
-function loadContent(data) {
-	var year = data.events[2].year;
+function loadInitialContent(data) {
 	generateYearList(data.events.map(e => e.year));
 	$(function () {
 		$().timelinr({
 			arrowKeys: 'true'
 		})
 	});
+}
 
-	setTimeout(() => {
-		$(`a[href^="#${year}"]`).click();
-	}, 100);
+function loadContent(data, year) {
+
+	$('#timeline-container').empty();
+	$('#timeline-container').append(`<div id="lineCont">
+	<div id="line"></div>
+	<div id="span">Loading</div>
+  </div>
+  <div id="mainCont" class="container">
+	<section id="timeline">
+	</section>
+  </div>`)
+
+	// setTimeout(() => {
+	// 	$(`a[href^="#${year}"]`).click();
+	// }, 100);
 
 	selectedYearData = data.events.find((e) => {
 		return e.year === year
