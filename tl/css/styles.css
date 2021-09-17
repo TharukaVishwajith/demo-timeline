@@ -4,18 +4,11 @@
 }
 
 body {
-  margin: 0;
-  padding: 100;
   font-family: Arial;
-  overflow: hidden;
   background-color: #5a0202;
   font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.5;
-}
-
-#timeline-container {
-  padding-top: 50px;
 }
 
 #lineCont {
@@ -97,7 +90,7 @@ body {
 }
 
 #mainCont {
-  height: 85%;
+  height: 80%;
   width: 100%;
   margin-top: 2%;
   padding: 0% 2% 0% 2%;

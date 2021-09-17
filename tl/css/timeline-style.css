@@ -32,7 +32,7 @@ a.selected {
   width: 800px;
   height: 700px;
   overflow: hidden;
-  margin: 0px auto;
+  margin: -11em auto;
   position: relative;
 }
 

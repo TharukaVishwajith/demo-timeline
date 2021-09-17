@@ -63,7 +63,7 @@ a.selected {
 	width: 800px;
 	height: 700px;
 	overflow: hidden;
-	margin: 0px auto;
+	margin: -11em auto;
 	position: relative;
 	// background: url("../images/dot.gif") left 45px repeat-x;
 }
@@ -78,7 +78,7 @@ a.selected {
 		height: 50px;
 		font-size: 24px;
 		text-align: center;
-		background: url("../images/biggerdot.png") center bottom no-repeat;
+		// background: url("../images/biggerdot.png") center bottom no-repeat;
 	}
 	a {
 		line-height: 38px;

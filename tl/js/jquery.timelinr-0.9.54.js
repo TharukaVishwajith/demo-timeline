@@ -94,7 +94,62 @@ jQuery.fn.timelinr = function (options) {
 
 
 $(document).ready(function () {
-	setTimeout(()=>{
-		$('a[href^="#2020"]').click();
-	},1000);
+	fetch('http://127.0.0.1:5500/data/meta.json')
+		.then(response => response.json())
+		.then(data => {
+			loadContent(data);
+		});
 });
+
+function loadContent(data) {
+	var year = data.events[2].year;
+	generateYearList(data.events.map(e => e.year));
+	$(function () {
+		$().timelinr({
+			arrowKeys: 'true'
+		})
+	});
+
+	setTimeout(() => {
+		$(`a[href^="#${year}"]`).click();
+	}, 100);
+
+	selectedYearData = data.events.find((e) => {
+		return e.year === year
+	});
+
+	dates = selectedYearData.details.map(a => {
+		return `${a.date.substr(2, 2)}/${a.date.substr(0, 2)}/${a.date.substr(4)}`
+	})
+	nums = []
+	for (let i = 1; i <= selectedYearData.details.length; i++) {
+		nums.push(i);
+	}
+
+	generateEventViews(selectedYearData, 1);
+	makeCircles(dates);
+	bindBrowserEvents();
+
+	// setTimeout(() => {
+	// 	loadEventData(year, function (selectedYearData) {
+	// 		dates = selectedYearData.details.map(a => {
+	// 			return `${a.date.substr(2, 2)}/${a.date.substr(0, 2)}/${a.date.substr(4)}`
+	// 		})
+	// 		nums = []
+	// 		for (let i = 1; i <= selectedYearData.details.length; i++) {
+	// 			nums.push(i);
+	// 		}
+	// 		generateEventViews(selectedYearData, 1);
+	// 		makeCircles(dates);
+	// 		bindBrowserEvents();
+	// 	});
+	// }, 3000);
+
+}
+
+function generateYearList(years) {
+	$('#dates').empty();
+	years.forEach(year => {
+		$('#dates').append(`<li><a href="#${year}">${year}</a></li>`)
+	});
+}
