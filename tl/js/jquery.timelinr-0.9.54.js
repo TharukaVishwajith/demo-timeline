@@ -10,6 +10,7 @@ instructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
 ---------------------------------- */
 
 var event_details = {};
+var current_year = 2015;
 
 jQuery.fn.timelinr = function (options) {
 	// default plugin settings
@@ -69,7 +70,15 @@ jQuery.fn.timelinr = function (options) {
 			} else if (settings.orientation == 'vertical') {
 				$(settings.datesDiv).animate({ 'marginTop': defaultPositionDates - (heightDate * currentIndex) }, { queue: false, duration: 'settings.datesSpeed' });
 			}
-			loadContent(event_details,parseInt(event.currentTarget.text));
+			var selected_year = parseInt(event.currentTarget.text);
+			if (selected_year > current_year) {
+				loadContent(event_details, selected_year, 1);
+			} else if (selected_year < current_year) {
+				loadContent(event_details, selected_year, -1);
+			} else {
+				loadContent(event_details, selected_year, 0);
+			}
+			current_year = selected_year;
 		});
 
 		// keyboard navigation, added since 0.9.1
@@ -121,7 +130,7 @@ function loadInitialContent(data) {
 	});
 }
 
-function loadContent(data, year) {
+function loadContent(data, year, direction) {
 
 	$('#timeline-container').empty();
 	$('#timeline-container').append(`<div id="lineCont">
@@ -152,6 +161,30 @@ function loadContent(data, year) {
 	generateEventViews(selectedYearData, 1);
 	makeCircles(dates);
 	bindBrowserEvents();
+	dw = ($(document).width());
+	tlw = $('.timeline-container').width();
+	animation_time = 150;
+	if (direction === 1) {
+		anime({
+			targets: '.timeline-container',
+			translateX: [
+				{ value: (dw + 100), duration: animation_time, delay: 0 },
+				{ value: -dw, duration: 0, delay: 0 },
+				{ value: (dw - tlw) / 2, duration: animation_time, delay: 0 },
+			],
+			easing: 'easeInOutSine'
+		});
+	} else if (direction === -1) {
+		anime({
+			targets: '.timeline-container',
+			translateX: [
+				{ value: -(dw + 100), duration: animation_time, delay: 0 },
+				{ value: dw, duration: 0, delay: 0 },
+				{ value: (dw - tlw) / 2, duration: animation_time, delay: 0 },
+			],
+			easing: 'easeInOutSine'
+		});
+	}
 
 	// setTimeout(() => {
 	// 	loadEventData(year, function (selectedYearData) {

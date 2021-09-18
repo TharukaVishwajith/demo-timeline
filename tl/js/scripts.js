@@ -1,4 +1,4 @@
-const META_FILE_PATH = 'http://127.0.0.1:5500/data/meta.json';
+const META_FILE_PATH = '../data/meta.json';
 
 //Sample dates
 

@@ -5,6 +5,7 @@
 
 body {
   font-family: Arial;
+  overflow: hidden;
   background-color: #5a0202;
   font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 12px;

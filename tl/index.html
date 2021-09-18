@@ -34,10 +34,6 @@
       <section id="timeline">
       </section>
     </div> -->
-    <!-- <div class="year-line">
-      <span class="year-label">2014 | 2015 | 2016</span>
-    </div> -->
-
   </div>
 
 
@@ -80,13 +76,27 @@
     //     translateX: ($(document).width() - $('.obj').width()) / 2,
     //   });
     // });
+    var dw = ($(document).width());
+    var tlw = $('.timeline-container').width();
+    setTimeout(() => {
+      dw = ($(document).width());
+      tlw = $('.timeline-container').width();
+      // dw = ($(document).width());
+      // tlw = $('.timeline-container').width();
+      // anime({
+      //   targets: '.timeline-container',
+      //   translateX: [
+      //     { value: (dw + 100), duration: 1000, delay: 0 },
+      //     { value: dw, duration: 0, delay: 0 },
+      //     { value: -(dw + 100), duration: 0, delay: 0 },
+      //     { value: -dw , duration: 0, delay: 0 },
+      //     { value: (dw - tlw) / 2 , duration: 1000, delay: 0 },
+      //   ],
+      //   // loop: true,
+      // });
+      // $('a[href^="#2016"]').click();
+    }, 2000);
 
-    anime({
-      targets: '.obj',
-      translateX: ($(document).width() - $('.obj').width()) / 2,
-      // backgroundColor: 'rgb(253, 194, 0, 1)',
-      opacity: 1
-    });
   </script>
 
   <script src="js/scripts.js"></script>
