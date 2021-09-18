@@ -8,7 +8,7 @@ https://www.opensource.org/licenses/mit-license.php
 
 instructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
 ---------------------------------- */
-
+const META_FILE_PATH = '../data/meta.json';
 var event_details = {};
 var current_year = 2015;
 
@@ -108,7 +108,7 @@ jQuery.fn.timelinr = function (options) {
 
 $(document).ready(function () {
 	let year = 2015;
-	fetch('http://127.0.0.1:5500/data/meta.json')
+	fetch(META_FILE_PATH)
 		.then(response => response.json())
 		.then(data => {
 			event_details = data;
