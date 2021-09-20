@@ -1,37 +1,104 @@
-<!doctype html>
-<html lang="en">
-
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="author" content="Made with ❤ by Jorge Epuñan - @csslab">
 
-  <!-- <script src="./lib/js/jquery.min.js"></script> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="styles.css" type="text/css">
-
-  <title>Demo Timeline</title>
+  <title>Timeline Demo</title>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.timelinr-0.9.54_v1.1.js"></script>
+  <script src="js/anime.min.js"></script>
+  <link rel="stylesheet" href="css/timeline-style.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script>
+    // $(function () {
+    //   $().timelinr({
+    //     arrowKeys: 'true'
+    //   })
+    // });
+  </script>
 </head>
 
 <body>
+  <!-- <div class="obj" style="background-color: rgb(253, 194, 0); opacity: 0;
+    width: 50px;
+    height: 50px;">
+
+  </div> -->
 
   <div class="timeline-container" id="timeline-container">
-    <div id="lineCont">
+    <!-- <div id="lineCont">
       <div id="line"></div>
-      <div id="span">Date Placeholder</div>
+      <div id="span">Loading</div>
     </div>
     <div id="mainCont" class="container">
       <section id="timeline">
       </section>
-    </div>
-    <!-- <div class="year-line">
-      <span class="year-label">2014 | 2015 | 2016</span>
     </div> -->
-
   </div>
 
-  <script src="scripts.js"></script>
 
+
+  <div id="supertimeline">
+    <!-- <div id="grad_left"></div>
+      <div id="grad_right"></div>
+      <a href="#" id="next" class="arrow right-arrow">+</a>
+      <a href="#" id="prev" class="arrow left-arrow">-</a> -->
+    <div id="year-container">
+      <ul id="dates">
+        <!-- <li><a href="#2014">2014</a></li>
+        <li><a href="#2015">2015</a></li>
+        <li><a href="#2016">2016</a></li>
+        <li><a href="#2017">2017</a></li>
+        <li><a href="#2018">2018</a></li>
+        <li><a href="#2019">2019</a></li>
+        <li><a href="#2020">2020</a></li>
+        <li><a href="#2021">2021</a></li> -->
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let x = 100;
+    $(document).width() / 2
+    $('a[href^="#2021"]').click(function (e) {
+      console.log(e);
+      x = x + 100;
+      anime({
+        targets: '.timeline-container',
+        translateX: $(document).width(),
+        opacity: 0
+      });
+    });
+
+    // $(window).resize(function () {
+    //   anime({
+    //     targets: '.obj',
+    //     translateX: ($(document).width() - $('.obj').width()) / 2,
+    //   });
+    // });
+    var dw = ($(document).width());
+    var tlw = $('.timeline-container').width();
+    setTimeout(() => {
+      dw = ($(document).width());
+      tlw = $('.timeline-container').width();
+      // dw = ($(document).width());
+      // tlw = $('.timeline-container').width();
+      // anime({
+      //   targets: '.timeline-container',
+      //   translateX: [
+      //     { value: (dw + 100), duration: 1000, delay: 0 },
+      //     { value: dw, duration: 0, delay: 0 },
+      //     { value: -(dw + 100), duration: 0, delay: 0 },
+      //     { value: -dw , duration: 0, delay: 0 },
+      //     { value: (dw - tlw) / 2 , duration: 1000, delay: 0 },
+      //   ],
+      //   // loop: true,
+      // });
+      // $('a[href^="#2016"]').click();
+    }, 2000);
+
+  </script>
+
+  <script src="js/scripts_v1.1.js"></script>
+  <!-- <script src="../scripts.js"></script> -->
 </body>
-
-</html>

@@ -5,8 +5,8 @@
 body {
     // width: 100vw;
     // height: 100vh;
-    margin: 0;
-    padding: 100;
+    // margin: 0;
+    // padding: 100;
     // background: #ff7e7e;
     font-family: Arial;
     overflow: hidden;
@@ -18,9 +18,9 @@ body {
     line-height: 1.5;
 }
 
-#timeline-container {
-    padding-top: 50px;
-}
+// #timeline-container {
+//     padding-top: 50px;
+// }
 
 #lineCont {
     width: 100%;
@@ -100,7 +100,7 @@ body {
 #mainCont {
     height: 80%;
     width: 100%;
-    margin-top: 4%;
+    margin-top: 2%;
     padding: 0% 2% 0% 2%;
     // position: relative;
     // color: rgb(153, 112, 1);
@@ -260,7 +260,7 @@ body {
     p {
         font-family: "Pathway Gothic One", Helvetica Neue, Helvetica, Arial, sans-serif;
         font-size: 1.728em;
-        line-height: 0;
+        line-height: 1;
         padding-bottom: 8px;
     }
 }

@@ -1,4 +1,4 @@
-const META_FILE_PATH = 'http://127.0.0.1:5500/data/meta.json';
+// const META_FILE_PATH = '../data/meta.json';
 
 //Sample dates
 
@@ -158,7 +158,7 @@ function readTextFile(file, callback) {
 function loadEventData(year, callback) {
     readTextFile(META_FILE_PATH, function (text) {
         var data = JSON.parse(text);
-        console.log(data);
+        // console.log(data);
         selectedYearData = data.events.find((e) => {
             return e.year === year
         });
@@ -171,11 +171,12 @@ function generateEventViews(selectedYearData, event_index) {
         return getRelativeElements(event_index).includes(e.index)
     });
     $('#timeline').empty();
+    let width = 100 / d.length;
     for (let i = 0; i < d.length; i++) {
-        $('#timeline').append(getElement(d[i]))
+        $('#timeline').append(getElement(d[i],width))
     }
-    function getElement(event) {
-        return `<div class="tl-item" data-item="${event.date}">
+    function getElement(event, w) {
+        return `<div class="tl-item" style="width:${w}%;" data-item="${event.date}">
                     <div class="tl-bg" style="background-image: url(../data/${event.date.substr(4)}/${event.date}/event_image.jpg)"></div>
                     <div class="tl-date">
                         <p class="f2 heading--sanSerif">${monthSpanS[parseInt(event.date.substr(2, 2)) - 1]} ${event.date.substr(0, 2)}</p>
@@ -190,20 +191,20 @@ function generateEventViews(selectedYearData, event_index) {
 }
 
 $(document).ready(function () {
-    setTimeout(() => {
-        loadEventData(new Date().getFullYear() - 6, function (selectedYearData) {
-            dates = selectedYearData.details.map(a => {
-                return `${a.date.substr(2, 2)}/${a.date.substr(0, 2)}/${a.date.substr(4)}`
-            })
-            nums = []
-            for (let i = 1; i <= selectedYearData.details.length; i++) {
-                nums.push(i);
-            }
-            generateEventViews(selectedYearData, 1);
-            makeCircles(dates);
-            bindBrowserEvents();
-        });
-    }, 3000);
+    // setTimeout(() => {
+    //     loadEventData(new Date().getFullYear() - 6, function (selectedYearData) {
+    //         dates = selectedYearData.details.map(a => {
+    //             return `${a.date.substr(2, 2)}/${a.date.substr(0, 2)}/${a.date.substr(4)}`
+    //         })
+    //         nums = []
+    //         for (let i = 1; i <= selectedYearData.details.length; i++) {
+    //             nums.push(i);
+    //         }
+    //         generateEventViews(selectedYearData, 1);
+    //         makeCircles(dates);
+    //         bindBrowserEvents();
+    //     });
+    // }, 3000);
 
 });
 
