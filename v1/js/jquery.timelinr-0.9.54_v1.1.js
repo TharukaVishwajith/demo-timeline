@@ -8,7 +8,7 @@ https://www.opensource.org/licenses/mit-license.php
 
 instructions: http://www.csslab.cl/2011/08/18/jquery-timelinr/
 ---------------------------------- */
-const META_FILE_PATH = '../data/meta.json';
+const META_FILE_PATH = './data/meta.json';
 var event_details = {};
 var current_year = 2015;
 
